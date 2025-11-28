@@ -1,6 +1,7 @@
-def main():
-    print("Hello from mlops-lab1!")
+from fastapi import FastAPI
 
+app = FastAPI()
 
-if __name__ == "__main__":
-    main()
+@app.get("/")
+def read_root():
+    return {"Hello": "World", "Status": "Deployed successfully"}
