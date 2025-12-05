@@ -18,8 +18,11 @@ FROM base AS builder
 # Install uv
 RUN pip install --no-cache-dir uv
 
-# Copy only dependency files first
+# Copy dependency files
 COPY pyproject.toml uv.lock* README.md ./
+
+# Copy mylib
+COPY mylib ./mylib
 
 # Install dependencies into the System Python (/usr/local)
 RUN uv pip install --system --no-cache .
@@ -32,7 +35,7 @@ FROM base AS runtime
 # Copy the pre-installed libraries from the builder stage
 COPY --from=builder /usr/local /usr/local
 
-# Copy your application source code
+# Copy application files
 COPY mylib ./mylib
 COPY templates ./templates
 COPY main.py .
