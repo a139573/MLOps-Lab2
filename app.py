@@ -1,7 +1,7 @@
 import gradio as gr
 import requests
 
-RENDER_API_URL = "https://mlops-lab2-latest-r35q.onrender.com"
+RENDER_API_URL = "https://mlops-lab2-latest-e31u.onrender.com"
 
 def predict_animal(image_path):
     """
