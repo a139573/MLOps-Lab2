@@ -44,7 +44,7 @@ jobs:
       # 4. Trigger Render Deploy
       # REPLACE 'srv-xxxxx' WITH YOUR ACTUAL SERVICE ID from the Render Deploy Hook URL
       - name: Trigger Render Deploy
-        run: curl -X POST "https://api.render.com/deploy/srv-d4ko180gjchc73aa3vs0?key=${{ secrets.RENDER_DEPLOY_HOOK_KEY }}"
+        run: curl -X POST "https://api.render.com/deploy/srv-d509aonfte5s73f8sf90?key=${{ secrets.RENDER_DEPLOY_HOOK_KEY }}"
 
   # JOB 2: Deploy Frontend to Hugging Face (From 'hf-space' branch)
   deploy-hf:

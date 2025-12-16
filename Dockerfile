@@ -37,11 +37,12 @@ COPY --from=builder /usr/local /usr/local
 
 # Copy application files
 COPY mylib ./mylib
+COPY cli ./cli
+COPY api ./api
 COPY templates ./templates
-COPY main.py .
 
 # Expose the port
 EXPOSE 8000
 
 # Start command
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "api.api:app", "--host", "0.0.0.0", "--port", "8000", "--proxy-headers"]
